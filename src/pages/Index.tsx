@@ -868,7 +868,12 @@ const Index = () => {
               </div>
               <span className="font-bold text-lg">Djanett-art</span>
             </div>
-            <p className="text-white/70">© 2024 Школа Искусств Djanett-art. Все права защищены.</p>
+            <div className="flex flex-col items-center md:items-end gap-2">
+              <a href="tel:+79782340014" className="text-white font-semibold text-lg hover:text-white/80 transition-colors">
+                +7 (978) 234-00-14
+              </a>
+              <p className="text-white/70 text-sm">© 2024 Школа Искусств Djanett-art. Все права защищены.</p>
+            </div>
             <div className="flex gap-4">
               <Button 
                 variant="ghost" 
