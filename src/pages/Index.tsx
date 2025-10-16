@@ -9,6 +9,7 @@ const Index = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    phone: "",
     message: ""
   });
 
@@ -22,18 +23,20 @@ const Index = () => {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b">
         <div className="container mx-auto px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <div className="w-10 h-10 rounded-full bg-gradient-creative"></div>
-            <span className="font-bold text-xl">Creative</span>
+            <div className="w-10 h-10 rounded-full bg-gradient-creative flex items-center justify-center">
+              <Icon name="Palette" className="text-white" size={20} />
+            </div>
+            <span className="font-bold text-xl">АртСтудия</span>
           </div>
           <div className="hidden md:flex items-center gap-8">
             <a href="#home" className="story-link text-sm font-medium">Главная</a>
             <a href="#benefits" className="story-link text-sm font-medium">Преимущества</a>
-            <a href="#services" className="story-link text-sm font-medium">Услуги</a>
+            <a href="#services" className="story-link text-sm font-medium">Направления</a>
             <a href="#reviews" className="story-link text-sm font-medium">Отзывы</a>
             <a href="#contacts" className="story-link text-sm font-medium">Контакты</a>
           </div>
           <Button className="bg-primary hover:bg-primary/90 text-white">
-            Связаться
+            Записаться
           </Button>
         </div>
       </nav>
@@ -45,25 +48,23 @@ const Index = () => {
         <div className="container mx-auto relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <div className="inline-block mb-6 px-6 py-2 bg-accent/20 rounded-full">
-              <span className="text-sm font-semibold text-foreground">🚀 Креативные решения</span>
+              <span className="text-sm font-semibold text-foreground">🎨 Раскройте творческий потенциал</span>
             </div>
             <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-fade-in" style={{ animationDelay: '0.1s' }}>
-              CREATIVE
+              Школа Искусств
               <br />
-              <span className="bg-gradient-creative bg-clip-text text-transparent">extidinal</span>
-              <br />
-              LANDING
+              <span className="bg-gradient-creative bg-clip-text text-transparent">для детей и взрослых</span>
             </h1>
             <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: '0.2s' }}>
-              Необычные креативные решения для вашего бизнеса. 
-              Создаём то, что выделяет вас среди конкурентов
+              Обучаем рисунку, живописи, скульптуре и дизайну. 
+              Развиваем творческое мышление и художественный вкус в любом возрасте
             </p>
-            <div className="flex gap-4 justify-center animate-fade-in" style={{ animationDelay: '0.3s' }}>
+            <div className="flex gap-4 justify-center animate-fade-in flex-wrap" style={{ animationDelay: '0.3s' }}>
               <Button size="lg" className="bg-primary hover:bg-primary/90 text-white px-8">
-                Начать проект
+                Записаться на пробное занятие
               </Button>
               <Button size="lg" variant="outline" className="border-2">
-                Узнать больше
+                Узнать о программах
               </Button>
             </div>
           </div>
@@ -76,41 +77,41 @@ const Index = () => {
             <span className="text-primary font-semibold text-sm uppercase tracking-wider">Почему мы</span>
             <h2 className="text-4xl md:text-5xl font-bold mt-2 mb-4">Наши преимущества</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              То, что делает нас особенными и помогает достигать результатов
+              Создаём комфортную среду для развития творческих способностей
             </p>
           </div>
           
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
+                icon: "Users",
+                title: "Опытные преподаватели",
+                description: "Дипломированные художники и педагоги с 10+ летним стажем"
+              },
+              {
                 icon: "Sparkles",
-                title: "Креативный подход",
-                description: "Нестандартные решения для каждого проекта"
+                title: "Индивидуальный подход",
+                description: "Программы адаптируются под уровень и цели каждого ученика"
               },
               {
-                icon: "Zap",
-                title: "Быстрая реализация",
-                description: "Эффективные процессы и четкие дедлайны"
-              },
-              {
-                icon: "Target",
-                title: "Точность в деталях",
-                description: "Внимание к каждому элементу вашего проекта"
+                icon: "Home",
+                title: "Уютная студия",
+                description: "Современное пространство с профессиональным оборудованием"
               },
               {
                 icon: "Award",
-                title: "Высокое качество",
-                description: "Проверенные стандарты и лучшие практики"
+                title: "Сертификаты и выставки",
+                description: "Возможность участия в конкурсах и персональных выставках"
               },
               {
-                icon: "Users",
-                title: "Команда экспертов",
-                description: "Профессионалы с многолетним опытом"
+                icon: "Calendar",
+                title: "Гибкое расписание",
+                description: "Утренние, дневные и вечерние группы на выбор"
               },
               {
                 icon: "TrendingUp",
-                title: "Рост результатов",
-                description: "Измеримые показатели успеха проектов"
+                title: "Видимый прогресс",
+                description: "Результаты уже после первого месяца обучения"
               }
             ].map((benefit, index) => (
               <Card 
@@ -132,44 +133,52 @@ const Index = () => {
       <section id="services" className="py-20 px-6">
         <div className="container mx-auto">
           <div className="text-center mb-16">
-            <span className="text-secondary font-semibold text-sm uppercase tracking-wider">Что мы делаем</span>
-            <h2 className="text-4xl md:text-5xl font-bold mt-2 mb-4">Наши услуги</h2>
+            <span className="text-secondary font-semibold text-sm uppercase tracking-wider">Наши программы</span>
+            <h2 className="text-4xl md:text-5xl font-bold mt-2 mb-4">Направления обучения</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Полный спектр креативных услуг для развития вашего бизнеса
+              Выберите программу, которая откроет мир искусства для вас или вашего ребёнка
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
             {[
               {
-                title: "Веб-дизайн",
-                description: "Создание уникальных и современных веб-интерфейсов",
-                features: ["UX/UI дизайн", "Адаптивная верстка", "Анимации"]
+                icon: "Paintbrush",
+                title: "Живопись и рисунок",
+                description: "Основы композиции, перспективы, работа с цветом",
+                features: ["Акварель", "Масло", "Графика"],
+                color: "primary"
               },
               {
-                title: "Брендинг",
-                description: "Разработка фирменного стиля и айдентики",
-                features: ["Логотип", "Гайдлайны", "Фирменный стиль"]
+                icon: "Box",
+                title: "Скульптура и лепка",
+                description: "Работа с объёмом, формой и пластикой материалов",
+                features: ["Глина", "Гипс", "Пластилин"],
+                color: "secondary"
               },
               {
-                title: "Разработка",
-                description: "Техническая реализация проектов любой сложности",
-                features: ["Frontend", "Backend", "Мобильные приложения"]
+                icon: "Laptop",
+                title: "Цифровой дизайн",
+                description: "Современные инструменты для digital-художников",
+                features: ["Photoshop", "Illustrator", "Procreate"],
+                color: "accent"
               },
               {
-                title: "Маркетинг",
-                description: "Стратегии продвижения и роста бизнеса",
-                features: ["SMM", "Контент", "Аналитика"]
+                icon: "Palette",
+                title: "Детская студия",
+                description: "Программы для детей от 5 лет с игровыми элементами",
+                features: ["Рисование", "Поделки", "Творчество"],
+                color: "primary"
               }
             ].map((service, index) => (
               <Card 
                 key={index}
-                className="p-8 bg-card border-2 hover:shadow-xl transition-all duration-300 animate-fade-in"
+                className="p-8 bg-card border-2 hover:shadow-xl transition-all duration-300 animate-fade-in group"
                 style={{ animationDelay: `${index * 0.15}s` }}
               >
                 <div className="flex items-start gap-4 mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-secondary/20 flex items-center justify-center flex-shrink-0">
-                    <Icon name="Box" className="text-secondary" size={24} />
+                  <div className={`w-12 h-12 rounded-xl bg-${service.color}/20 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform`}>
+                    <Icon name={service.icon} className={`text-${service.color}`} size={24} />
                   </div>
                   <div>
                     <h3 className="text-2xl font-bold mb-2">{service.title}</h3>
@@ -186,8 +195,28 @@ const Index = () => {
                     </span>
                   ))}
                 </div>
+                <Button className="w-full mt-6 bg-primary hover:bg-primary/90 text-white">
+                  Подробнее о курсе
+                </Button>
               </Card>
             ))}
+          </div>
+
+          <div className="mt-12 text-center">
+            <Card className="max-w-3xl mx-auto p-8 bg-gradient-creative text-white">
+              <div className="flex flex-col md:flex-row items-center gap-6">
+                <Icon name="Gift" size={48} className="text-white flex-shrink-0" />
+                <div className="text-left">
+                  <h3 className="text-2xl font-bold mb-2">Первое занятие бесплатно!</h3>
+                  <p className="text-white/90">
+                    Приходите на пробный урок, познакомьтесь с преподавателем и атмосферой студии
+                  </p>
+                </div>
+                <Button size="lg" variant="outline" className="bg-white text-foreground hover:bg-white/90 whitespace-nowrap">
+                  Записаться
+                </Button>
+              </div>
+            </Card>
           </div>
         </div>
       </section>
@@ -196,27 +225,27 @@ const Index = () => {
         <div className="container mx-auto">
           <div className="text-center mb-16">
             <span className="text-accent font-semibold text-sm uppercase tracking-wider">Отзывы</span>
-            <h2 className="text-4xl md:text-5xl font-bold mt-2 mb-4">Что говорят клиенты</h2>
+            <h2 className="text-4xl md:text-5xl font-bold mt-2 mb-4">Что говорят наши ученики</h2>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {[
               {
-                name: "Анна Петрова",
-                role: "CEO, TechStart",
-                text: "Команда превзошла все ожидания! Креативный подход и профессионализм на высшем уровне.",
+                name: "Елена Михайлова",
+                role: "Мама ученицы",
+                text: "Дочка ходит на занятия уже полгода и просто влюблена в рисование! Преподаватели находят подход к каждому ребёнку.",
                 rating: 5
               },
               {
-                name: "Дмитрий Иванов",
-                role: "Основатель, DesignHub",
-                text: "Отличная работа! Проект был выполнен точно в срок с вниманием к каждой детали.",
+                name: "Алексей Соколов",
+                role: "Студент курса дизайна",
+                text: "Отличная программа для начинающих! За 3 месяца научился работать в Photoshop и создал портфолио.",
                 rating: 5
               },
               {
-                name: "Мария Сидорова",
-                role: "Маркетолог, BrandWorks",
-                text: "Результат превзошёл наши ожидания. Рекомендую всем, кто ищет качество и креатив!",
+                name: "Ирина Волкова",
+                role: "Курс живописи",
+                text: "Всегда мечтала научиться рисовать. Здесь это стало реальностью! Атмосфера творчества и поддержки.",
                 rating: 5
               }
             ].map((review, index) => (
@@ -232,7 +261,9 @@ const Index = () => {
                 </div>
                 <p className="text-muted-foreground mb-6 italic">"{review.text}"</p>
                 <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-full bg-gradient-creative"></div>
+                  <div className="w-12 h-12 rounded-full bg-gradient-creative flex items-center justify-center">
+                    <Icon name="User" className="text-white" size={24} />
+                  </div>
                   <div>
                     <p className="font-semibold">{review.name}</p>
                     <p className="text-sm text-muted-foreground">{review.role}</p>
@@ -248,22 +279,36 @@ const Index = () => {
         <div className="container mx-auto max-w-4xl">
           <div className="text-center mb-16">
             <span className="text-primary font-semibold text-sm uppercase tracking-wider">Свяжитесь с нами</span>
-            <h2 className="text-4xl md:text-5xl font-bold mt-2 mb-4">Начнём работу вместе</h2>
+            <h2 className="text-4xl md:text-5xl font-bold mt-2 mb-4">Запишитесь на пробное занятие</h2>
             <p className="text-muted-foreground">
-              Расскажите о вашем проекте, и мы свяжемся с вами в ближайшее время
+              Заполните форму, и мы свяжемся с вами для подбора удобного времени
             </p>
           </div>
 
           <Card className="p-8 md:p-12 bg-card">
             <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label className="block text-sm font-medium mb-2">Ваше имя</label>
-                <Input 
-                  placeholder="Иван Иванов"
-                  value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="w-full"
-                />
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-sm font-medium mb-2">Ваше имя *</label>
+                  <Input 
+                    placeholder="Иван Иванов"
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    className="w-full"
+                    required
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium mb-2">Телефон *</label>
+                  <Input 
+                    type="tel"
+                    placeholder="+7 (999) 123-45-67"
+                    value={formData.phone}
+                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                    className="w-full"
+                    required
+                  />
+                </div>
               </div>
               <div>
                 <label className="block text-sm font-medium mb-2">Email</label>
@@ -276,17 +321,20 @@ const Index = () => {
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium mb-2">Сообщение</label>
+                <label className="block text-sm font-medium mb-2">Какое направление вас интересует?</label>
                 <Textarea 
-                  placeholder="Расскажите о вашем проекте..."
+                  placeholder="Например: живопись для начинающих, детская студия для ребёнка 7 лет..."
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className="w-full min-h-[150px]"
+                  className="w-full min-h-[120px]"
                 />
               </div>
               <Button type="submit" size="lg" className="w-full bg-primary hover:bg-primary/90 text-white">
-                Отправить сообщение
+                Отправить заявку
               </Button>
+              <p className="text-sm text-muted-foreground text-center">
+                Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности
+              </p>
             </form>
           </Card>
 
@@ -294,17 +342,17 @@ const Index = () => {
             <div className="p-6">
               <Icon name="Mail" className="mx-auto mb-3 text-primary" size={32} />
               <p className="font-semibold mb-1">Email</p>
-              <p className="text-muted-foreground">hello@creative.com</p>
+              <p className="text-muted-foreground">info@artstudio.ru</p>
             </div>
             <div className="p-6">
               <Icon name="Phone" className="mx-auto mb-3 text-secondary" size={32} />
               <p className="font-semibold mb-1">Телефон</p>
-              <p className="text-muted-foreground">+7 (999) 123-45-67</p>
+              <p className="text-muted-foreground">+7 (495) 123-45-67</p>
             </div>
             <div className="p-6">
               <Icon name="MapPin" className="mx-auto mb-3 text-accent" size={32} />
               <p className="font-semibold mb-1">Адрес</p>
-              <p className="text-muted-foreground">Москва, Россия</p>
+              <p className="text-muted-foreground">Москва, ул. Арбат, 10</p>
             </div>
           </div>
         </div>
@@ -314,19 +362,21 @@ const Index = () => {
         <div className="container mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
             <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-full bg-gradient-creative"></div>
-              <span className="font-bold text-lg">Creative</span>
+              <div className="w-8 h-8 rounded-full bg-gradient-creative flex items-center justify-center">
+                <Icon name="Palette" className="text-white" size={16} />
+              </div>
+              <span className="font-bold text-lg">АртСтудия</span>
             </div>
-            <p className="text-white/70">© 2024 Creative. Все права защищены.</p>
+            <p className="text-white/70">© 2024 Школа Искусств АртСтудия. Все права защищены.</p>
             <div className="flex gap-4">
-              <Button variant="ghost" size="icon" className="text-white hover:bg-white/10">
-                <Icon name="Facebook" size={20} />
-              </Button>
               <Button variant="ghost" size="icon" className="text-white hover:bg-white/10">
                 <Icon name="Instagram" size={20} />
               </Button>
               <Button variant="ghost" size="icon" className="text-white hover:bg-white/10">
-                <Icon name="Linkedin" size={20} />
+                <Icon name="Youtube" size={20} />
+              </Button>
+              <Button variant="ghost" size="icon" className="text-white hover:bg-white/10">
+                <Icon name="MessageCircle" size={20} />
               </Button>
             </div>
           </div>
