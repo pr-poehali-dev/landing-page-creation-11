@@ -773,14 +773,7 @@ const Index = () => {
             </form>
           </Card>
 
-          <div className="mt-12 grid md:grid-cols-4 gap-6 text-center">
-            <div className="p-6">
-              <Icon name="Mail" className="mx-auto mb-3 text-primary" size={32} />
-              <p className="font-semibold mb-1">Email</p>
-              <a href="mailto:info@artstudio.ru" className="text-muted-foreground hover:text-primary transition-colors">
-                info@artstudio.ru
-              </a>
-            </div>
+          <div className="mt-12 grid md:grid-cols-3 gap-6 text-center">
             <div className="p-6">
               <Icon name="Phone" className="mx-auto mb-3 text-secondary" size={32} />
               <p className="font-semibold mb-1">Телефон</p>
