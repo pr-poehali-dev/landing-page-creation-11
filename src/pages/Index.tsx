@@ -2,10 +2,13 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import Icon from "@/components/ui/icon";
 import { useState } from "react";
+import { useToast } from "@/hooks/use-toast";
 
 const Index = () => {
+  const { toast } = useToast();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -13,9 +16,32 @@ const Index = () => {
     message: ""
   });
 
+  const [callbackForm, setCallbackForm] = useState({
+    name: "",
+    phone: "",
+    time: "morning"
+  });
+
+  const [isCallbackOpen, setIsCallbackOpen] = useState(false);
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log("Form submitted:", formData);
+    toast({
+      title: "Заявка отправлена!",
+      description: "Мы свяжемся с вами в ближайшее время.",
+    });
+  };
+
+  const handleCallbackSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log("Callback form submitted:", callbackForm);
+    toast({
+      title: "Заявка на звонок принята!",
+      description: "Мы перезвоним вам в указанное время.",
+    });
+    setIsCallbackOpen(false);
+    setCallbackForm({ name: "", phone: "", time: "morning" });
   };
 
   return (
@@ -38,11 +64,87 @@ const Index = () => {
             <a href="#reviews" className="story-link text-sm font-medium">Отзывы</a>
             <a href="#contacts" className="story-link text-sm font-medium">Контакты</a>
           </div>
-          <Button className="bg-primary hover:bg-primary/90 text-white">
-            Записаться
-          </Button>
+          <div className="flex items-center gap-3">
+            <Dialog open={isCallbackOpen} onOpenChange={setIsCallbackOpen}>
+              <DialogTrigger asChild>
+                <Button variant="outline" size="sm" className="hidden md:flex items-center gap-2">
+                  <Icon name="Phone" size={16} />
+                  Обратный звонок
+                </Button>
+              </DialogTrigger>
+              <DialogContent className="sm:max-w-md">
+                <DialogHeader>
+                  <DialogTitle className="flex items-center gap-2">
+                    <Icon name="Phone" className="text-primary" size={24} />
+                    Заказать обратный звонок
+                  </DialogTitle>
+                </DialogHeader>
+                <form onSubmit={handleCallbackSubmit} className="space-y-4 mt-4">
+                  <div>
+                    <label className="block text-sm font-medium mb-2">Ваше имя *</label>
+                    <Input 
+                      placeholder="Как к вам обращаться?"
+                      value={callbackForm.name}
+                      onChange={(e) => setCallbackForm({ ...callbackForm, name: e.target.value })}
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium mb-2">Телефон *</label>
+                    <Input 
+                      type="tel"
+                      placeholder="+7 (999) 123-45-67"
+                      value={callbackForm.phone}
+                      onChange={(e) => setCallbackForm({ ...callbackForm, phone: e.target.value })}
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium mb-2">Удобное время для звонка</label>
+                    <div className="grid grid-cols-3 gap-2">
+                      {[
+                        { value: "morning", label: "Утро", icon: "Sunrise" },
+                        { value: "day", label: "День", icon: "Sun" },
+                        { value: "evening", label: "Вечер", icon: "Sunset" }
+                      ].map((time) => (
+                        <button
+                          key={time.value}
+                          type="button"
+                          onClick={() => setCallbackForm({ ...callbackForm, time: time.value })}
+                          className={`p-3 rounded-lg border-2 transition-all flex flex-col items-center gap-1 ${
+                            callbackForm.time === time.value 
+                              ? 'border-primary bg-primary/10' 
+                              : 'border-border hover:border-primary/50'
+                          }`}
+                        >
+                          <Icon name={time.icon} size={20} />
+                          <span className="text-xs font-medium">{time.label}</span>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                  <Button type="submit" className="w-full bg-primary hover:bg-primary/90 text-white">
+                    Заказать звонок
+                  </Button>
+                  <p className="text-xs text-muted-foreground text-center">
+                    Мы перезвоним вам в течение 15 минут
+                  </p>
+                </form>
+              </DialogContent>
+            </Dialog>
+            <Button className="bg-primary hover:bg-primary/90 text-white">
+              Записаться
+            </Button>
+          </div>
         </div>
       </nav>
+
+      <button 
+        onClick={() => setIsCallbackOpen(true)}
+        className="fixed bottom-6 right-6 z-50 w-14 h-14 bg-primary hover:bg-primary/90 text-white rounded-full shadow-lg flex items-center justify-center transition-all hover:scale-110 animate-float"
+      >
+        <Icon name="Phone" size={24} />
+      </button>
 
       <section id="home" className="pt-32 pb-20 px-6 relative overflow-hidden">
         <div className="absolute top-20 right-10 w-64 h-64 bg-primary/20 rounded-full blur-3xl animate-float"></div>
