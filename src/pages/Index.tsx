@@ -666,6 +666,29 @@ const Index = () => {
               </Card>
             ))}
           </div>
+
+          <div className="mt-12 text-center">
+            <Card className="max-w-3xl mx-auto p-8 bg-gradient-accent">
+              <div className="flex flex-col md:flex-row items-center gap-6">
+                <Icon name="MessageCircle" size={48} className="text-white flex-shrink-0" />
+                <div className="text-left flex-1">
+                  <h3 className="text-2xl font-bold mb-2 text-white">Свяжитесь с нами в Telegram</h3>
+                  <p className="text-white/90">
+                    Задайте вопросы, узнайте о скидках и акциях, запишитесь на занятие — всё в одном месте
+                  </p>
+                </div>
+                <Button 
+                  size="lg" 
+                  variant="outline" 
+                  className="bg-white text-foreground hover:bg-white/90 whitespace-nowrap"
+                  onClick={() => window.open('https://t.me/artstudio_bot', '_blank')}
+                >
+                  <Icon name="Send" className="mr-2" size={18} />
+                  Открыть Telegram
+                </Button>
+              </div>
+            </Card>
+          </div>
         </div>
       </section>
 
@@ -732,22 +755,70 @@ const Index = () => {
             </form>
           </Card>
 
-          <div className="mt-12 grid md:grid-cols-3 gap-6 text-center">
+          <div className="mt-12 grid md:grid-cols-4 gap-6 text-center">
             <div className="p-6">
               <Icon name="Mail" className="mx-auto mb-3 text-primary" size={32} />
               <p className="font-semibold mb-1">Email</p>
-              <p className="text-muted-foreground">info@artstudio.ru</p>
+              <a href="mailto:info@artstudio.ru" className="text-muted-foreground hover:text-primary transition-colors">
+                info@artstudio.ru
+              </a>
             </div>
             <div className="p-6">
               <Icon name="Phone" className="mx-auto mb-3 text-secondary" size={32} />
               <p className="font-semibold mb-1">Телефон</p>
-              <p className="text-muted-foreground">+7 (495) 123-45-67</p>
+              <a href="tel:+74951234567" className="text-muted-foreground hover:text-secondary transition-colors">
+                +7 (495) 123-45-67
+              </a>
+            </div>
+            <div className="p-6">
+              <Icon name="Send" className="mx-auto mb-3 text-[#0088cc]" size={32} />
+              <p className="font-semibold mb-1">Telegram</p>
+              <button 
+                onClick={() => window.open('https://t.me/artstudio_bot', '_blank')}
+                className="text-muted-foreground hover:text-[#0088cc] transition-colors"
+              >
+                @artstudio_bot
+              </button>
             </div>
             <div className="p-6">
               <Icon name="MapPin" className="mx-auto mb-3 text-accent" size={32} />
               <p className="font-semibold mb-1">Адрес</p>
               <p className="text-muted-foreground">Москва, ул. Арбат, 10</p>
             </div>
+          </div>
+
+          <div className="mt-8">
+            <Card className="p-6 bg-muted/50">
+              <p className="text-center text-sm text-muted-foreground mb-4">
+                Выберите удобный способ связи:
+              </p>
+              <div className="flex flex-wrap justify-center gap-3">
+                <Button 
+                  variant="outline" 
+                  className="gap-2"
+                  onClick={() => window.open('https://t.me/artstudio_bot', '_blank')}
+                >
+                  <Icon name="Send" size={18} />
+                  Telegram
+                </Button>
+                <Button 
+                  variant="outline" 
+                  className="gap-2"
+                  onClick={() => window.open('https://wa.me/79991234567', '_blank')}
+                >
+                  <Icon name="MessageCircle" size={18} />
+                  WhatsApp
+                </Button>
+                <Button 
+                  variant="outline" 
+                  className="gap-2"
+                  onClick={() => setIsCallbackOpen(true)}
+                >
+                  <Icon name="Phone" size={18} />
+                  Обратный звонок
+                </Button>
+              </div>
+            </Card>
           </div>
         </div>
       </section>
@@ -763,14 +834,29 @@ const Index = () => {
             </div>
             <p className="text-white/70">© 2024 Школа Искусств АртСтудия. Все права защищены.</p>
             <div className="flex gap-4">
-              <Button variant="ghost" size="icon" className="text-white hover:bg-white/10">
+              <Button 
+                variant="ghost" 
+                size="icon" 
+                className="text-white hover:bg-white/10"
+                onClick={() => window.open('https://instagram.com/artstudio', '_blank')}
+              >
                 <Icon name="Instagram" size={20} />
               </Button>
-              <Button variant="ghost" size="icon" className="text-white hover:bg-white/10">
+              <Button 
+                variant="ghost" 
+                size="icon" 
+                className="text-white hover:bg-white/10"
+                onClick={() => window.open('https://youtube.com/@artstudio', '_blank')}
+              >
                 <Icon name="Youtube" size={20} />
               </Button>
-              <Button variant="ghost" size="icon" className="text-white hover:bg-white/10">
-                <Icon name="MessageCircle" size={20} />
+              <Button 
+                variant="ghost" 
+                size="icon" 
+                className="text-white hover:bg-white/10"
+                onClick={() => window.open('https://t.me/artstudio_bot', '_blank')}
+              >
+                <Icon name="Send" size={20} />
               </Button>
             </div>
           </div>
