@@ -11,7 +11,6 @@ const Index = () => {
   const { toast } = useToast();
   const [formData, setFormData] = useState({
     name: "",
-    email: "",
     phone: "",
     message: ""
   });
@@ -755,16 +754,7 @@ const Index = () => {
                   />
                 </div>
               </div>
-              <div>
-                <label className="block text-sm font-medium mb-2">Email</label>
-                <Input 
-                  type="email"
-                  placeholder="ivan@example.com"
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="w-full"
-                />
-              </div>
+
               <div>
                 <label className="block text-sm font-medium mb-2">Какое направление вас интересует?</label>
                 <Textarea 
