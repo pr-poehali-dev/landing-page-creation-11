@@ -169,7 +169,7 @@ const Index = () => {
               <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-fade-in" style={{ animationDelay: '0.1s' }}>
                 Школа Искусств
                 <br />
-                <span className="bg-gradient-creative bg-clip-text text-transparent">для детей и взрослых</span>
+                <span className="bg-gradient-creative bg-clip-text text-[#000000]">для детей и взрослых</span>
               </h1>
               <p className="text-xl text-muted-foreground mb-8 animate-fade-in" style={{ animationDelay: '0.2s' }}>
                 Обучаем рисунку, живописи, скульптуре и дизайну. 
