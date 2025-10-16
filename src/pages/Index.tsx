@@ -32,6 +32,8 @@ const Index = () => {
             <a href="#home" className="story-link text-sm font-medium">Главная</a>
             <a href="#benefits" className="story-link text-sm font-medium">Преимущества</a>
             <a href="#services" className="story-link text-sm font-medium">Направления</a>
+            <a href="#gallery" className="story-link text-sm font-medium">Галерея</a>
+            <a href="#pricing" className="story-link text-sm font-medium">Расписание</a>
             <a href="#reviews" className="story-link text-sm font-medium">Отзывы</a>
             <a href="#contacts" className="story-link text-sm font-medium">Контакты</a>
           </div>
@@ -215,6 +217,194 @@ const Index = () => {
                 <Button size="lg" variant="outline" className="bg-white text-foreground hover:bg-white/90 whitespace-nowrap">
                   Записаться
                 </Button>
+              </div>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      <section id="gallery" className="py-20 px-6 bg-muted/30">
+        <div className="container mx-auto">
+          <div className="text-center mb-16">
+            <span className="text-primary font-semibold text-sm uppercase tracking-wider">Портфолио</span>
+            <h2 className="text-4xl md:text-5xl font-bold mt-2 mb-4">Работы наших учеников</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Вдохновитесь творчеством студентов школы — от первых шагов до профессиональных работ
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            {[
+              {
+                image: "https://cdn.poehali.dev/projects/0ff6b702-2b64-46bb-9716-9e78d29f7aad/files/154d831c-20af-42de-805c-44d446adecfb.jpg",
+                title: "Акварельные цветы",
+                author: "Мария, 2 месяца обучения",
+                category: "Живопись"
+              },
+              {
+                image: "https://cdn.poehali.dev/projects/0ff6b702-2b64-46bb-9716-9e78d29f7aad/files/7fb061db-011a-4c46-b57f-eb622aaaeab3.jpg",
+                title: "Портрет маслом",
+                author: "Алексей, 6 месяцев обучения",
+                category: "Живопись"
+              },
+              {
+                image: "https://cdn.poehali.dev/projects/0ff6b702-2b64-46bb-9716-9e78d29f7aad/files/98e39157-18c7-42b1-9f27-a956963c62b4.jpg",
+                title: "Абстрактная композиция",
+                author: "Елена, 4 месяца обучения",
+                category: "Современное искусство"
+              }
+            ].map((work, index) => (
+              <Card 
+                key={index}
+                className="overflow-hidden hover-scale animate-scale-in group"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <div className="relative h-64 overflow-hidden">
+                  <img 
+                    src={work.image} 
+                    alt={work.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                    <div className="text-white">
+                      <p className="text-sm font-semibold">{work.category}</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="p-6">
+                  <h3 className="font-bold text-lg mb-2">{work.title}</h3>
+                  <p className="text-sm text-muted-foreground">{work.author}</p>
+                </div>
+              </Card>
+            ))}
+          </div>
+
+          <div className="mt-12 text-center">
+            <Button size="lg" variant="outline" className="border-2">
+              Посмотреть всю галерею
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      <section id="pricing" className="py-20 px-6">
+        <div className="container mx-auto">
+          <div className="text-center mb-16">
+            <span className="text-secondary font-semibold text-sm uppercase tracking-wider">Расписание и цены</span>
+            <h2 className="text-4xl md:text-5xl font-bold mt-2 mb-4">Выберите удобный формат</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Гибкие программы обучения для разных целей и возможностей
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {[
+              {
+                name: "Групповые занятия",
+                price: "3 500",
+                period: "за 4 занятия",
+                features: [
+                  "Группы до 8 человек",
+                  "2 раза в неделю",
+                  "Длительность 2 часа",
+                  "Все материалы включены",
+                  "Доступ к студии"
+                ],
+                popular: false
+              },
+              {
+                name: "Индивидуальные",
+                price: "2 500",
+                period: "за занятие",
+                features: [
+                  "Персональный подход",
+                  "Гибкий график",
+                  "Длительность 1.5 часа",
+                  "Программа под ваши цели",
+                  "Быстрый прогресс"
+                ],
+                popular: true
+              },
+              {
+                name: "Детская студия",
+                price: "2 800",
+                period: "за 4 занятия",
+                features: [
+                  "Группы до 6 детей",
+                  "2 раза в неделю",
+                  "Длительность 1.5 часа",
+                  "Игровой формат",
+                  "Материалы включены"
+                ],
+                popular: false
+              }
+            ].map((plan, index) => (
+              <Card 
+                key={index}
+                className={`p-8 relative animate-scale-in ${plan.popular ? 'border-2 border-primary shadow-xl scale-105' : 'border-2'}`}
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                {plan.popular && (
+                  <div className="absolute -top-4 left-1/2 -translate-x-1/2">
+                    <span className="bg-primary text-white px-4 py-1 rounded-full text-sm font-semibold">
+                      Популярное
+                    </span>
+                  </div>
+                )}
+                <div className="text-center mb-6">
+                  <h3 className="text-2xl font-bold mb-2">{plan.name}</h3>
+                  <div className="flex items-baseline justify-center gap-1">
+                    <span className="text-4xl font-bold">{plan.price}</span>
+                    <span className="text-muted-foreground">₽</span>
+                  </div>
+                  <p className="text-sm text-muted-foreground mt-1">{plan.period}</p>
+                </div>
+                <ul className="space-y-3 mb-8">
+                  {plan.features.map((feature, i) => (
+                    <li key={i} className="flex items-start gap-2">
+                      <Icon name="Check" className="text-primary flex-shrink-0 mt-0.5" size={18} />
+                      <span className="text-sm">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+                <Button 
+                  className={`w-full ${plan.popular ? 'bg-primary hover:bg-primary/90 text-white' : ''}`}
+                  variant={plan.popular ? 'default' : 'outline'}
+                >
+                  Записаться
+                </Button>
+              </Card>
+            ))}
+          </div>
+
+          <div className="mt-12 max-w-4xl mx-auto">
+            <Card className="p-8 bg-accent/10 border-accent">
+              <div className="flex items-start gap-4">
+                <Icon name="Clock" className="text-accent flex-shrink-0 mt-1" size={32} />
+                <div>
+                  <h3 className="font-bold text-xl mb-3">Расписание занятий</h3>
+                  <div className="grid md:grid-cols-2 gap-6 text-sm">
+                    <div>
+                      <p className="font-semibold mb-2">Групповые занятия:</p>
+                      <ul className="space-y-1 text-muted-foreground">
+                        <li>• Понедельник, Среда: 18:00 - 20:00</li>
+                        <li>• Вторник, Четверг: 19:00 - 21:00</li>
+                        <li>• Суббота: 11:00 - 13:00, 14:00 - 16:00</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <p className="font-semibold mb-2">Детская студия:</p>
+                      <ul className="space-y-1 text-muted-foreground">
+                        <li>• Понедельник, Среда: 16:00 - 17:30</li>
+                        <li>• Суббота: 10:00 - 11:30</li>
+                        <li>• Воскресенье: 11:00 - 12:30</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <p className="text-sm text-muted-foreground mt-4">
+                    * Индивидуальные занятия — по согласованию
+                  </p>
+                </div>
               </div>
             </Card>
           </div>
