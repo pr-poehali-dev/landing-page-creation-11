@@ -832,10 +832,18 @@ const Index = () => {
                 <Button 
                   variant="outline" 
                   className="gap-2"
-                  onClick={() => window.open('https://wa.me/79991234567', '_blank')}
+                  onClick={() => window.open('https://wa.me/79782340014', '_blank')}
                 >
                   <Icon name="MessageCircle" size={18} />
                   WhatsApp
+                </Button>
+                <Button 
+                  variant="outline" 
+                  className="gap-2"
+                  onClick={() => window.open('tel:+79782340014', '_blank')}
+                >
+                  <Icon name="Phone" size={18} />
+                  +7 (978) 234-00-14
                 </Button>
                 <Button 
                   variant="outline" 
