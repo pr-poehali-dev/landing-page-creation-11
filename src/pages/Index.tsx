@@ -802,9 +802,7 @@ const Index = () => {
               <button 
                 onClick={() => window.open('https://t.me/artstudio_bot', '_blank')}
                 className="text-muted-foreground hover:text-[#0088cc] transition-colors"
-              >
-                @artstudio_bot
-              </button>
+              >@Djonik6821</button>
             </div>
             <div className="p-6">
               <Icon name="MapPin" className="mx-auto mb-3 text-accent" size={32} />
