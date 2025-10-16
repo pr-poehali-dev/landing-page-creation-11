@@ -33,6 +33,7 @@ const Index = () => {
             <a href="#benefits" className="story-link text-sm font-medium">Преимущества</a>
             <a href="#services" className="story-link text-sm font-medium">Направления</a>
             <a href="#gallery" className="story-link text-sm font-medium">Галерея</a>
+            <a href="#teachers" className="story-link text-sm font-medium">Преподаватели</a>
             <a href="#pricing" className="story-link text-sm font-medium">Расписание</a>
             <a href="#reviews" className="story-link text-sm font-medium">Отзывы</a>
             <a href="#contacts" className="story-link text-sm font-medium">Контакты</a>
@@ -283,6 +284,107 @@ const Index = () => {
             <Button size="lg" variant="outline" className="border-2">
               Посмотреть всю галерею
             </Button>
+          </div>
+        </div>
+      </section>
+
+      <section id="teachers" className="py-20 px-6">
+        <div className="container mx-auto">
+          <div className="text-center mb-16">
+            <span className="text-secondary font-semibold text-sm uppercase tracking-wider">Наша команда</span>
+            <h2 className="text-4xl md:text-5xl font-bold mt-2 mb-4">Познакомьтесь с преподавателями</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Профессиональные художники и педагоги с многолетним опытом работы
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {[
+              {
+                name: "Елена Волкова",
+                role: "Преподаватель живописи",
+                image: "https://cdn.poehali.dev/projects/0ff6b702-2b64-46bb-9716-9e78d29f7aad/files/c09a3f25-2721-4ccd-a601-34cd72c74596.jpg",
+                experience: "15 лет опыта",
+                education: "МГХПА им. Строганова",
+                specialization: "Акварель, масло, акрил",
+                achievements: "Участник более 20 выставок, лауреат конкурса «Молодые художники России»"
+              },
+              {
+                name: "Дмитрий Соколов",
+                role: "Преподаватель рисунка и композиции",
+                image: "https://cdn.poehali.dev/projects/0ff6b702-2b64-46bb-9716-9e78d29f7aad/files/86ca733f-59c6-464f-a1fc-d536e41af825.jpg",
+                experience: "12 лет опыта",
+                education: "МАРХИ",
+                specialization: "Академический рисунок, перспектива",
+                achievements: "Член Союза художников России, персональные выставки в Москве и Санкт-Петербурге"
+              },
+              {
+                name: "Анна Морозова",
+                role: "Преподаватель цифрового дизайна",
+                image: "https://cdn.poehali.dev/projects/0ff6b702-2b64-46bb-9716-9e78d29f7aad/files/ce2beb06-293c-47f0-a6ef-5eeccfe9b336.jpg",
+                experience: "8 лет опыта",
+                education: "British Higher School of Art and Design",
+                specialization: "Digital art, иллюстрация",
+                achievements: "Работы опубликованы в международных изданиях, сотрудничество с Adobe"
+              }
+            ].map((teacher, index) => (
+              <Card 
+                key={index}
+                className="overflow-hidden hover-scale animate-fade-in group"
+                style={{ animationDelay: `${index * 0.15}s` }}
+              >
+                <div className="relative h-80 overflow-hidden">
+                  <img 
+                    src={teacher.image} 
+                    alt={teacher.name}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+                  <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                    <h3 className="text-2xl font-bold mb-1">{teacher.name}</h3>
+                    <p className="text-white/90 text-sm">{teacher.role}</p>
+                  </div>
+                </div>
+                <div className="p-6 space-y-3">
+                  <div className="flex items-center gap-2 text-sm">
+                    <Icon name="Briefcase" className="text-primary" size={16} />
+                    <span className="text-muted-foreground">{teacher.experience}</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-sm">
+                    <Icon name="GraduationCap" className="text-secondary" size={16} />
+                    <span className="text-muted-foreground">{teacher.education}</span>
+                  </div>
+                  <div className="flex items-start gap-2 text-sm">
+                    <Icon name="Palette" className="text-accent flex-shrink-0 mt-0.5" size={16} />
+                    <span className="text-muted-foreground">{teacher.specialization}</span>
+                  </div>
+                  <div className="pt-3 border-t">
+                    <p className="text-sm text-muted-foreground italic">
+                      {teacher.achievements}
+                    </p>
+                  </div>
+                </div>
+              </Card>
+            ))}
+          </div>
+
+          <div className="mt-12 max-w-3xl mx-auto">
+            <Card className="p-8 bg-primary/5 border-primary/20">
+              <div className="flex flex-col md:flex-row items-center gap-6 text-center md:text-left">
+                <div className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
+                  <Icon name="Users" className="text-primary" size={32} />
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-xl font-bold mb-2">Присоединяйтесь к нашей команде</h3>
+                  <p className="text-muted-foreground">
+                    Мы ищем талантливых художников и педагогов. Если вы любите искусство и готовы делиться знаниями — напишите нам!
+                  </p>
+                </div>
+                <Button variant="outline" className="whitespace-nowrap">
+                  Отправить резюме
+                </Button>
+              </div>
+            </Card>
           </div>
         </div>
       </section>
