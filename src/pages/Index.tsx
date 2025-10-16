@@ -52,7 +52,7 @@ const Index = () => {
             <div className="w-10 h-10 rounded-full bg-gradient-creative flex items-center justify-center">
               <Icon name="Palette" className="text-white" size={20} />
             </div>
-            <span className="font-bold text-xl">АртСтудия</span>
+            <span className="font-bold text-xl">Djanett-art</span>
           </div>
           <div className="hidden md:flex items-center gap-8">
             <a href="#home" className="story-link text-sm font-medium">Главная</a>
@@ -858,9 +858,9 @@ const Index = () => {
               <div className="w-8 h-8 rounded-full bg-gradient-creative flex items-center justify-center">
                 <Icon name="Palette" className="text-white" size={16} />
               </div>
-              <span className="font-bold text-lg">АртСтудия</span>
+              <span className="font-bold text-lg">Djanett-art</span>
             </div>
-            <p className="text-white/70">© 2024 Школа Искусств АртСтудия. Все права защищены.</p>
+            <p className="text-white/70">© 2024 Школа Искусств Djanett-art. Все права защищены.</p>
             <div className="flex gap-4">
               <Button 
                 variant="ghost" 
