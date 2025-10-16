@@ -146,32 +146,60 @@ const Index = () => {
         <Icon name="Phone" size={24} />
       </button>
 
-      <section id="home" className="pt-32 pb-20 px-6 relative overflow-hidden">
-        <div className="absolute top-20 right-10 w-64 h-64 bg-primary/20 rounded-full blur-3xl animate-float"></div>
-        <div className="absolute bottom-10 left-10 w-80 h-80 bg-secondary/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }}></div>
+      <section id="home" className="pt-20 pb-0 relative overflow-hidden min-h-[90vh] flex items-center">
+        <div className="absolute inset-0 z-0">
+          <img 
+            src="https://cdn.poehali.dev/projects/0ff6b702-2b64-46bb-9716-9e78d29f7aad/files/1da708a5-6914-4feb-92a8-52e33ed5590d.jpg"
+            alt="Арт студия"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/85 to-background/60"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background/40"></div>
+        </div>
+
+        <div className="absolute top-20 right-10 w-64 h-64 bg-primary/10 rounded-full blur-3xl animate-float z-[1]"></div>
+        <div className="absolute bottom-10 left-10 w-80 h-80 bg-secondary/10 rounded-full blur-3xl animate-float z-[1]" style={{ animationDelay: '1s' }}></div>
         
-        <div className="container mx-auto relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-block mb-6 px-6 py-2 bg-accent/20 rounded-full">
-              <span className="text-sm font-semibold text-foreground">🎨 Раскройте творческий потенциал</span>
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="text-left">
+              <div className="inline-block mb-6 px-6 py-2 bg-accent/20 backdrop-blur-sm rounded-full">
+                <span className="text-sm font-semibold text-foreground">🎨 Раскройте творческий потенциал</span>
+              </div>
+              <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-fade-in" style={{ animationDelay: '0.1s' }}>
+                Школа Искусств
+                <br />
+                <span className="bg-gradient-creative bg-clip-text text-transparent">для детей и взрослых</span>
+              </h1>
+              <p className="text-xl text-muted-foreground mb-8 animate-fade-in" style={{ animationDelay: '0.2s' }}>
+                Обучаем рисунку, живописи, скульптуре и дизайну. 
+                Развиваем творческое мышление и художественный вкус в любом возрасте
+              </p>
+              <div className="flex gap-4 animate-fade-in flex-wrap" style={{ animationDelay: '0.3s' }}>
+                <Button size="lg" className="bg-primary hover:bg-primary/90 text-white px-8">
+                  Записаться на пробное занятие
+                </Button>
+                <Button size="lg" variant="outline" className="border-2 bg-background/80 backdrop-blur-sm">
+                  Узнать о программах
+                </Button>
+              </div>
+              
+              <div className="mt-12 grid grid-cols-3 gap-6 animate-fade-in" style={{ animationDelay: '0.4s' }}>
+                <div className="text-center p-4 bg-card/80 backdrop-blur-sm rounded-xl border-2">
+                  <div className="text-3xl font-bold text-primary mb-1">15+</div>
+                  <div className="text-sm text-muted-foreground">лет опыта</div>
+                </div>
+                <div className="text-center p-4 bg-card/80 backdrop-blur-sm rounded-xl border-2">
+                  <div className="text-3xl font-bold text-secondary mb-1">500+</div>
+                  <div className="text-sm text-muted-foreground">учеников</div>
+                </div>
+                <div className="text-center p-4 bg-card/80 backdrop-blur-sm rounded-xl border-2">
+                  <div className="text-3xl font-bold text-accent mb-1">12</div>
+                  <div className="text-sm text-muted-foreground">направлений</div>
+                </div>
+              </div>
             </div>
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-fade-in" style={{ animationDelay: '0.1s' }}>
-              Школа Искусств
-              <br />
-              <span className="bg-gradient-creative bg-clip-text text-transparent">для детей и взрослых</span>
-            </h1>
-            <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: '0.2s' }}>
-              Обучаем рисунку, живописи, скульптуре и дизайну. 
-              Развиваем творческое мышление и художественный вкус в любом возрасте
-            </p>
-            <div className="flex gap-4 justify-center animate-fade-in flex-wrap" style={{ animationDelay: '0.3s' }}>
-              <Button size="lg" className="bg-primary hover:bg-primary/90 text-white px-8">
-                Записаться на пробное занятие
-              </Button>
-              <Button size="lg" variant="outline" className="border-2">
-                Узнать о программах
-              </Button>
-            </div>
+            <div className="hidden md:block"></div>
           </div>
         </div>
       </section>
